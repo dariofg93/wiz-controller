@@ -10,3 +10,7 @@
 ```
     pip3 install -r requirements.txt
 ```
+
+## Use
+
+See option with: `python3 -m src.prompt.cli --help`

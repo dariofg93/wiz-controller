@@ -1,1 +1,4 @@
 .venv/
+data/wiz_controller.py
+.DS_Store
+__pycache__
