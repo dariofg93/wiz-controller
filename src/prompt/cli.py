@@ -30,9 +30,9 @@ def coro(f: Callable[..., Coroutine[Any, Any, T]]) -> Callable[..., T]:
 def main() -> None:
     """Command-line tool to interact with the controller."""
 
-@main.command("create_databases")
+@main.command("create_database")
 @coro
-async def update() -> None:
+async def create_database() -> None:
     """Create all tables."""
     create_tables()
 
@@ -92,18 +92,7 @@ async def toggle(name: str) -> None:
 )
 async def discovery(broadcast_space: str) -> None:
     """Set in database the discovered bulbs."""
-    await bulb_service.update_all(broadcast_space, True)
-
-@main.command("update")
-@coro
-@click.option(
-    "--broadcast_space",
-    prompt="Put the broadcast space",
-    help="Set in database the discovered bulbs",
-)
-async def update(broadcast_space: str) -> None:
-    """Set in database the discovered bulbs."""
-    await bulb_service.update_all(broadcast_space, False)
+    await bulb_service.discovery(broadcast_space)
 
 if __name__ == "__main__":
     main()

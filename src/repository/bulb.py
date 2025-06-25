@@ -8,7 +8,6 @@ def table_definition() -> str:
     return"""
     CREATE TABLE IF NOT EXISTS bulb (
         name TEXT PRIMARY KEY,
-        is_on BOOLEAN NOT NULL,
         mac_address TEXT NOT NULL,
         ip_address TEXT NOT NULL,
         updated_at TEXT NOT NULL
@@ -23,7 +22,6 @@ class BulbRepository:
             if row:
                 return BulbEntity(
                     name=row["name"],
-                    is_on=row["is_on"],
                     mac_address=row["mac_address"],
                     ip_address=row["ip_address"],
                     updated_at=datetime.fromisoformat(row["updated_at"])
@@ -36,7 +34,6 @@ class BulbRepository:
             return [
                 BulbEntity(
                     name=row["name"],
-                    is_on=row["is_on"],
                     mac_address=row["mac_address"],
                     ip_address=row["ip_address"],
                     updated_at=datetime.fromisoformat(row["updated_at"])
@@ -49,9 +46,9 @@ class BulbRepository:
 
         with get_connection() as conn:
             conn.execute("""
-                INSERT OR REPLACE INTO bulb (name, is_on, mac_address, ip_address, updated_at)
-                VALUES (?, ?, ?, ?, ?)
-            """, (bulb.name, bulb.is_on, bulb.mac_address, bulb.ip_address, now))
+                INSERT OR REPLACE INTO bulb (name, mac_address, ip_address, updated_at)
+                VALUES (?, ?, ?, ?)
+            """, (bulb.name, bulb.mac_address, bulb.ip_address, now))
 
     def delete(self, name: str) -> bool:
         with get_connection() as conn:

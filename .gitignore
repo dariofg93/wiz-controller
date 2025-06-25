@@ -1,4 +1,4 @@
 .venv/
-data/wiz_controller.py
+data/wiz_controller.db
 .DS_Store
 __pycache__
