@@ -7,6 +7,8 @@ botones = {
     22: "Botón Verde"
 }
 
+GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
+
 for pin in botones:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
