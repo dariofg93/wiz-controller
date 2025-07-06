@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 botones = {
-    17: "Botón Rojo",
+    1: "Botón Rojo",
     27: "Botón Azul",
     22: "Botón Verde"
 }
