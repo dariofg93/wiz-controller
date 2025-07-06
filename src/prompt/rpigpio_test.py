@@ -13,14 +13,15 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-if GPIO.input(17) == 0:
-    print("presionado 17")
+while True:
+    if GPIO.input(17) == 0:
+        print("presionado 17")
 
-if GPIO.input(3) == 0:
-    print("presionado 3")
+    if GPIO.input(3) == 0:
+        print("presionado 3")
 
-if GPIO.input(1) == 0:
-    print("presionado 1")
+    if GPIO.input(1) == 0:
+        print("presionado 1")
 
 # for pin in botones:
 #     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
