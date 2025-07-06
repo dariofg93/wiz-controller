@@ -9,9 +9,9 @@ botones = {
 
 GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
 
-GPIO.setup(17, GPIO.IN)
-GPIO.setup(3, GPIO.IN)
-GPIO.setup(1, GPIO.IN)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 if GPIO.input(17) == 0:
     print("presionado 17")
