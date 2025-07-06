@@ -7,7 +7,7 @@ botones = {
     3: "Botón Verde"
 }
 
-GPIO.setmode(GPIO.BOARD)  # <-- esta línea es necesaria
+GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
 
 GPIO.setup(17, GPIO.IN)
 GPIO.setup(3, GPIO.IN)
