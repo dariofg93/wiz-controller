@@ -2,9 +2,9 @@ import RPi.GPIO as GPIO
 import time
 
 botones = {
-    1: "Botón Rojo",
-    27: "Botón Azul",
-    22: "Botón Verde"
+    17: "Botón Rojo",
+    1: "Botón Azul",
+    3: "Botón Verde"
 }
 
 GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
