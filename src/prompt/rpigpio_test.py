@@ -23,6 +23,7 @@ while True:
     if GPIO.input(1) == 0:
         print("presionado 1")
 
+    time.sleep(1)
 # for pin in botones:
 #     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
