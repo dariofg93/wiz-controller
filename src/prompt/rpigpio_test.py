@@ -1,32 +1,28 @@
 import RPi.GPIO as GPIO
 import time
 
-botones = {
-    17: "Botón Rojo",
-    1: "Botón Azul",
-    3: "Botón Verde"
-}
-
 GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
+print(GPIO.RPI_INFO)
 
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# print(GPIO.input(17))
 
-while True:
-    print(GPIO.input(17))
-    print(GPIO.input(3))
-    print(GPIO.input(1))
-    # if GPIO.input(17) == 0:
-    #     print("presionado 17")
+# while True:
+#     print(GPIO.input(17))
+#     print(GPIO.input(3))
+#     print(GPIO.input(1))
+#     # if GPIO.input(17) == 0:
+#     #     print("presionado 17")
 
-    # if GPIO.input(3) == 0:
-    #     print("presionado 3")
+#     # if GPIO.input(3) == 0:
+#     #     print("presionado 3")
 
-    # if GPIO.input(1) == 0:
-    #     print("presionado 1")
+#     # if GPIO.input(1) == 0:
+#     #     print("presionado 1")
 
-    time.sleep(1)
+#     time.sleep(1)
 # for pin in botones:
 #     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
