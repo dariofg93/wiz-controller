@@ -4,7 +4,8 @@ import time
 GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
 print(GPIO.RPI_INFO)
 
-GPIO.setup(2, GPIO.IN)
+print(GPIO.input(2))
+print(GPIO.input(3))
 # GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # print(GPIO.input(17))
