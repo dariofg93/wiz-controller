@@ -1,9 +1,12 @@
 import RPi.GPIO as GPIO
 import signal
+from src.service.bulb import BulbService
 
 GPIO.setmode(GPIO.BCM)
 
 button_pins = [2, 3]
+
+bulb_service = BulbService()
 
 for pin in button_pins:
     # Configuramos cada pin como entrada con pull-up interno
@@ -11,6 +14,7 @@ for pin in button_pins:
 
 # Callback que se llama cuando se detecta un flanco de bajada (botón presionado)
 def button_callback(channel):
+    bulb_service.toggle_light('living')
     print(f"Botón en pin {channel} presionado")
 
 # Configuramos detección de eventos
