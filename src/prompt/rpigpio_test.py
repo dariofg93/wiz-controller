@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import signal
+
 from src.service.bulb import BulbService
 
 GPIO.setmode(GPIO.BCM)
