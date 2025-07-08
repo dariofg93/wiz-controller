@@ -1,40 +1,27 @@
 import RPi.GPIO as GPIO
-import time
+import signal
 
-GPIO.setmode(GPIO.BCM)  # <-- esta línea es necesaria
-print(GPIO.RPI_INFO)
+GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(2, GPIO.IN)
-GPIO.setup(3, GPIO.IN)
-# GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-# GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-# print(GPIO.input(17))
+button_pins = [2, 3]
 
-while True:
-    print(GPIO.input(2))
-    print(GPIO.input(3))
-#     print(GPIO.input(3))
-#     print(GPIO.input(1))
-#     # if GPIO.input(17) == 0:
-#     #     print("presionado 17")
+for pin in button_pins:
+    # Configuramos cada pin como entrada con pull-up interno
+    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-#     # if GPIO.input(3) == 0:
-#     #     print("presionado 3")
+# Callback que se llama cuando se detecta un flanco de bajada (botón presionado)
+def button_callback(channel):
+    print(f"Botón en pin {channel} presionado")
 
-#     # if GPIO.input(1) == 0:
-#     #     print("presionado 1")
+# Configuramos detección de eventos
+for pin in button_pins:
+    GPIO.add_event_detect(pin, GPIO.FALLING, callback=button_callback, bouncetime=300)
 
-#     time.sleep(1)
-# for pin in botones:
-#     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+print("Esperando que se presionen botones. Presioná Ctrl+C para salir.")
 
-# print("Esperando pulsación...")
-# try:
-#     while True:
-#         for pin, nombre in botones.items():
-#             if GPIO.input(pin) == GPIO.LOW:
-#                 print(f"nombre: {nombre}")
-#                 print(f"pin: {pin}")
-#         time.sleep(0.1)
-# except KeyboardInterrupt:
-#     GPIO.cleanup()
+try:
+    signal.pause()  # Suspende el proceso hasta que ocurra una señal
+except KeyboardInterrupt:
+    print("\nSaliendo...")
+finally:
+    GPIO.cleanup()
