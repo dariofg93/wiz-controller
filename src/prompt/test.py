@@ -1,7 +1,8 @@
-try:
-    from rpi_lgpio import Gpio
-except ImportError:
-    from src.mock.mock_gpio import Gpio
+from rpi_lgpio import Gpio
+#try:
+#    from rpi_lgpio import Gpio
+#except ImportError:
+#    from src.mock.mock_gpio import Gpio
 
 import signal
 
@@ -12,6 +13,7 @@ gpio = Gpio()
 
 # Configuramos los pines como entrada con pull-up
 for pin in button_pins:
+    gpio.set_mode(pin, Gpio.INPUT)
     gpio.set_pull_up_down(pin, Gpio.PUD_UP)
 
 # Callback que se llama cuando se detecta un flanco de bajada
