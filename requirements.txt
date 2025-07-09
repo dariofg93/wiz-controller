@@ -1,3 +1,4 @@
 click==8.2.1
+lgpio==0.2.2.0
 pywizlight==0.6.3
-rpi-lgpio==0.6
+RPi.GPIO==0.7.1
