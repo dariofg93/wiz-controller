@@ -1,4 +1,4 @@
-from rpi_lgpio import Gpio
+from lgpio import Gpio
 #try:
 #    from rpi_lgpio import Gpio
 #except ImportError:
