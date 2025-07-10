@@ -1,33 +1,34 @@
 import gpiod
-import time
+import asyncio
 from src.service.bulb import BulbService
 
-bulb_service = BulbService()
-# Abrir chip0 (pinctrl-rp1)
-chip = gpiod.Chip('gpiochip0')
+async def main():
+    bulb_service = BulbService()
 
-# Pines a usar
-pins = [4, 5]  # cambiá por los que quieras
+    chip = gpiod.Chip('gpiochip0')
+    pins = [4, 5]
 
-# Pedir como entrada con pull-up
-lines = chip.get_lines(pins)
-lines.request(consumer='test', type=gpiod.LINE_REQ_DIR_IN, flags=gpiod.LINE_REQ_FLAG_BIAS_PULL_UP)
+    lines = chip.get_lines(pins)
+    lines.request(consumer='test', type=gpiod.LINE_REQ_DIR_IN, flags=gpiod.LINE_REQ_FLAG_BIAS_PULL_UP)
 
-try:
-    print("Esperando botones en GPIO 4 o GPIO 5...")
-    while True:
-        values = lines.get_values()
-        if values[0] == 0:
-            print("¡Botón en GPIO 4 presionado!")
-            bulb_service.toggle_light('living')
-            time.sleep(0.5)
-        if values[1] == 0:
-            print("¡Botón en GPIO 5 presionado!")
-            bulb_service.toggle_light('living')
-            time.sleep(0.5)
-        time.sleep(0.1)
-except KeyboardInterrupt:
-    print("Salida con Ctrl+C")
-finally:
-    lines.release()
-    chip.close()
+    try:
+        print("Esperando botones en GPIO 4 o GPIO 5...")
+        while True:
+            values = lines.get_values()
+            if values[0] == 0:
+                print("¡Botón en GPIO 4 presionado!")
+                await bulb_service.toggle_light('living')
+                await asyncio.sleep(0.5)
+            if values[1] == 0:
+                print("¡Botón en GPIO 5 presionado!")
+                await bulb_service.toggle_light('living')
+                await asyncio.sleep(0.5)
+            await asyncio.sleep(0.1)
+    except KeyboardInterrupt:
+        print("Salida con Ctrl+C")
+    finally:
+        lines.release()
+        chip.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
