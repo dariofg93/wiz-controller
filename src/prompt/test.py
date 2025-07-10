@@ -1,6 +1,8 @@
 import gpiod
 import time
+from src.service.bulb import BulbService
 
+bulb_service = BulbService()
 # Abrir chip0 (pinctrl-rp1)
 chip = gpiod.Chip('gpiochip0')
 
@@ -17,9 +19,11 @@ try:
         values = lines.get_values()
         if values[0] == 0:
             print("¡Botón en GPIO 4 presionado!")
+            bulb_service.toggle_light('living')
             time.sleep(0.5)
         if values[1] == 0:
             print("¡Botón en GPIO 5 presionado!")
+            bulb_service.toggle_light('living')
             time.sleep(0.5)
         time.sleep(0.1)
 except KeyboardInterrupt:
