@@ -17,11 +17,11 @@ async def main():
             values = lines.get_values()
             if values[0] == 0:
                 print("¡Botón en GPIO 4 presionado!")
-                await bulb_service.toggle_light('living')
+                await bulb_service.toggle_light('hallway')
                 await asyncio.sleep(0.5)
             if values[1] == 0:
                 print("¡Botón en GPIO 5 presionado!")
-                await bulb_service.toggle_light('living')
+                await bulb_service.toggle_light('hallway')
                 await asyncio.sleep(0.5)
             await asyncio.sleep(0.1)
     except KeyboardInterrupt:
