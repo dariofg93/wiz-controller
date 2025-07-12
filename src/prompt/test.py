@@ -61,13 +61,41 @@ async def main():
         while True:
             values = yellow_domain_lines.get_values()
             if 0 in values:
-                print("¡Botón en GPIO 4 presionado!")
+                print("¡Botón GPIO YELLOW DOMAIN presionado!")
+                await bulb_service.toggle_light('kitchen')
+                await asyncio.sleep(0.5)
+        
+            values = brown_domain_lines.get_values()
+            if 0 in values:
+                print("¡Botón GPIO BROWN DOMAIN presionado!")
+                await bulb_service.toggle_light('living')
+                await asyncio.sleep(0.5)
+
+            values = violet_domain_lines.get_values()
+            if 0 in values:
+                print("¡Botón GPIO VIOLET DOMAIN presionado!")
                 await bulb_service.toggle_light('hallway')
+                await asyncio.sleep(0.5)
+
+            values = blue_domain_lines.get_values()
+            if 0 in values:
+                print("¡Botón GPIO BLUE DOMAIN presionado!")
+                await bulb_service.toggle_light('room')
+                await asyncio.sleep(0.5)
+
+            values = monocromatic_domain_lines.get_values()
+            if 0 in values:
+                print("¡Botón GPIO MONOCROMATIC DOMAIN presionado!")
+                await bulb_service.toggle_light('bathroom')
                 await asyncio.sleep(0.5)
     except KeyboardInterrupt:
         print("Salida con Ctrl+C")
     finally:
         yellow_domain_lines.release()
+        brown_domain_lines.release()
+        violet_domain_lines.release()
+        blue_domain_lines.release()
+        monocromatic_domain_lines.release()
         chip.close()
 
 if __name__ == "__main__":
