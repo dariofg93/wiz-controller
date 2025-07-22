@@ -11,6 +11,9 @@ class PressedButtons:
     _is_modified: bool
     _indexes: List[int]
 
+    def __init__(self):
+        pass
+
 MODIFIED_BUTTON_INDEX: int = 7
 chip = gpiod.Chip('gpiochip0')
 pins = [pin.bcm for pin in pin_configuration]
