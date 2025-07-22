@@ -17,5 +17,5 @@ class OneConfig(PinFunction):
         self._brightness = brightness
         self._color_temp = color_temp
 
-    def exec(self):
+    async def exec(self):
         pass

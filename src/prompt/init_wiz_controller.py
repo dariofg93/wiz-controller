@@ -50,7 +50,8 @@ async def main():
 
             for button_index in buttons._indexes:
                 # Enviar por parametro de exec el buttons._is_modified
-                pin_configuration[button_index].fn.exec()
+                await pin_configuration[button_index].fn.exec()
+                await asyncio.sleep(0.5)
         
     except KeyboardInterrupt:
         print("Salida con Ctrl+C")

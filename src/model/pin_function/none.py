@@ -6,5 +6,5 @@ class Nothing(PinFunction):
     def __init__(self):
         super().__init__()
 
-    def exec(self):
+    async def exec(self):
         pass

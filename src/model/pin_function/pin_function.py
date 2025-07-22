@@ -16,7 +16,7 @@ class PinFunction(ABC):
         self._bulb_service = BulbService()
 
     @abstractmethod
-    def exec(self):
+    async def exec(self):
         """
         Execute the pin wiz function.
         """

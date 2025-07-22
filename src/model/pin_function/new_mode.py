@@ -9,5 +9,5 @@ class NewMode(PinFunction):
         super().__init__()
         self._configurations = configurations
 
-    def exec(self):
+    async def exec(self):
         pass

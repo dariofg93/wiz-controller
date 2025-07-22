@@ -8,5 +8,5 @@ class Toggle(PinFunction):
         super().__init__() 
         self._bulb_name = bulb_name
 
-    def exec(self):
+    async def exec(self):
         self._bulb_service.toggle_light(self._bulb_name)
