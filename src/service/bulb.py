@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Optional, Set
 
-from src.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
-from src.utils import mapping
+from src.util.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
+from src.util.utils import mapping
 from src.model.bulb import BulbEntity
 from src.repository.bulb import BulbRepository
 

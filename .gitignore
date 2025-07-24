@@ -1,3 +1,4 @@
+.env
 .venv/
 data/wiz_controller.db
 .DS_Store

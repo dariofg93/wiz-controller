@@ -1,4 +1,4 @@
-from src.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
+from src.util.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
 from src.model.pin_function.pin_function import PinFunction
 
 

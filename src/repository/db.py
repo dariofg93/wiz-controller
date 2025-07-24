@@ -1,5 +1,5 @@
 import sqlite3
-from src.constants import DATABASE_PATH
+from src.util.constants import DATABASE_PATH
 
 def get_connection():
     DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)

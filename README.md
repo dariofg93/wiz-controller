@@ -13,4 +13,6 @@
 
 ## Use
 
-See option with: `python3 -m src.prompt.cli --help`
+See options with: `python3 -m src.prompt.cli --help`
+
+Client thats wait pin inputs: `python3 -m src.prompt.init_wiz_controller`

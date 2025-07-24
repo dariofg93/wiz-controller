@@ -6,7 +6,7 @@ import pywizlight
 import asyncio
 
 from src.repository.migrations import create_tables
-from src.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
+from src.util.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
 from src.service.bulb import BulbService
 
 del pywizlight.wizlight.__del__

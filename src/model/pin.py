@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List
 
-from src.constants import BATHROOM_NAME, HALLWAY_NAME, KITCHEN_NAME, LIVING_NAME, ROOM_NAME
+from src.util.constants import BATHROOM_NAME, HALLWAY_NAME, KITCHEN_NAME, LIVING_NAME, ROOM_NAME
 from src.model.pin_function.new_mode import NewMode
 from src.model.pin_function.none import Nothing
 from src.model.pin_function.one_config import OneConfig

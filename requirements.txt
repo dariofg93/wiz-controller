@@ -1,4 +1,5 @@
 click==8.2.1
 lgpio==0.2.2.0
+python-dotenv==1.1.1
 pywizlight==0.6.3
 RPi.GPIO==0.7.1
