@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Optional, Set
 
 from src.util.constants import DEFAULT_BRIGHTNESS, DEFAULT_COLOR_TEMP
+from src.util.logger import info
 from src.util.utils import mapping
 from src.model.bulb import BulbEntity
 from src.repository.bulb import BulbRepository
@@ -51,6 +52,7 @@ class BulbService:
             )
 
     async def discovery(self, broadcast_space: str) -> None:
+        info('Start process to discover bulbs')
         saved_bulbs: List[BulbEntity] = self._bulb_repository.retrieve()
         discovered_bulbs: List[DiscoveredBulb] = await discovery.find_wizlights(broadcast_address=broadcast_space)
 

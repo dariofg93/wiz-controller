@@ -1,5 +1,5 @@
 .env
 .venv/
-data/wiz_controller.db
+data/*
 .DS_Store
 __pycache__

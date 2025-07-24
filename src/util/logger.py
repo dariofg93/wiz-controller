@@ -1,16 +1,8 @@
 import logging
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
-# Load environment variables from the .env file
-# It is crucial that Load_Dotenv () is called at the beginning, before trying to access the variables.
-load_dotenv()
-
-# ---Global logger configuration ---
-# Obtain the log file from the environment variables
-LOG_FILE_PATH = os.getenv('LOG_FILE_PATH')
-LOG_LEVEL_STR = os.getenv('LOG_LEVEL', 'INFO').upper() # Default level if you are not in .env
+from src.util.constants import LOG_FILE_PATH, LOG_LEVEL_STR
 
 # Convert the Log level string to its numeric logging value
 LOG_LEVEL = getattr(logging, LOG_LEVEL_STR, logging.INFO)
