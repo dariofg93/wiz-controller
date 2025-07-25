@@ -93,3 +93,17 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Running discovery..."
 # Execute the command
 python3 -m src.prompt.cli discovery --broadcast_space 192.168.0.255
 ```
+
+***Set shutdown permission***
+
+1. Connect to raspberry by SSH and execute:
+
+```sh
+sudo visudo
+```
+
+2. Go to end line of the file and put the next command
+
+```
+pi ALL=NOPASSWD: /usr/sbin/shutdown
+```
