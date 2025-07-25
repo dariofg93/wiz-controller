@@ -26,7 +26,7 @@ pin_configuration: List[Pin] = [
     Pin(pin=29, bcm=5, color_arduino='brown', color_protoboard='brown', fn=Nothing()),                # 4
     Pin(pin=31, bcm=6, color_arduino='green', color_protoboard='brown', fn=Nothing()),                # 5
     Pin(pin=33, bcm=13, color_arduino='blue', color_protoboard='grey', fn=Bash(                       # 6
-        "sudo /sbin/shutdown -h now"
+        "sudo shutdown -h now"
     )),
     Pin(pin=35, bcm=19, color_arduino='white', color_protoboard='white', fn=Nothing()),               # 7: Modify button
 
