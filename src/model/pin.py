@@ -19,9 +19,9 @@ class Pin:
 
 pin_configuration: List[Pin] = [
     # Odd
-    Pin(pin=7, bcm=4, color_arduino='black', color_protoboard='black', fn=Toggle(LAMP_3_NAME)),      # 0
-    Pin(pin=11, bcm=17, color_arduino='grey', color_protoboard='grey', fn=Toggle(LAMP_4_NAME)),     # 1
-    Pin(pin=13, bcm=27, color_arduino='violet', color_protoboard='violet', fn=Toggle(LAMP_5_NAME)),  # 2
+    Pin(pin=7, bcm=4, color_arduino='black', color_protoboard='black', fn=Toggle(LAMP_3_NAME)),       # 0
+    Pin(pin=11, bcm=17, color_arduino='grey', color_protoboard='grey', fn=Toggle(LAMP_4_NAME)),       # 1
+    Pin(pin=13, bcm=27, color_arduino='violet', color_protoboard='violet', fn=Toggle(LAMP_5_NAME)),   # 2
     Pin(pin=15, bcm=22, color_arduino='green', color_protoboard='green', fn=Nothing()),               # 3
     Pin(pin=29, bcm=5, color_arduino='brown', color_protoboard='brown', fn=Nothing()),                # 4
     Pin(pin=31, bcm=6, color_arduino='green', color_protoboard='brown', fn=Nothing()),                # 5
