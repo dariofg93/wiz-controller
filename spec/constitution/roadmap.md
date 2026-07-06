@@ -13,7 +13,7 @@ _Features completadas, en orden de implementación._
 
 _Lo próximo a abordar. Idealmente una sola feature "en curso" a la vez._
 
-3. **NNN · <Nombre>** — <una línea de qué resuelve>.
+3. **001 · Support tests** — Agrega tests unitarios a todos los módulos de `src/` con inyección de dependencias y `unittest.mock`.
 
 ## Backlog / ideas 💡
 
